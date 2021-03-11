@@ -6,4 +6,4 @@ This repository contains my solution attempts at Geek Trust challenges available
 
 |Challenge | Link | Branch |
 |--|--|--|
-|A Golden Crown (Bankend) | [View Challenge](https://www.geektrust.in/coding-problem/backend/tame-of-thrones) | golden-crown|
+|A Golden Crown (Backend) | [View Challenge](https://www.geektrust.in/coding-problem/backend/tame-of-thrones) | golden-crown|
