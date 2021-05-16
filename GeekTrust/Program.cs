@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using GeekTrust.Contracts;
+using System;
+using System.IO;
 
 namespace GeekTrust
 {
@@ -10,12 +12,19 @@ namespace GeekTrust
             var fileStream = new FileStream(filename, FileMode.Open);
             string line;
 
+            IUniverseBuilder universeBuilder = new UniverseBuilder();
+            universeBuilder.Build("Southeros", "SPACE");
+
+            var universe = universeBuilder.Universe;
+
             using (var reader = new StreamReader(fileStream))
             {
                 while ((line = reader.ReadLine()) != null)
                 {
-                    //TODO: Process input
+                    universe.SendMessage(line);
                 }
+
+                Console.WriteLine(universe.DetermineRuler());
             }
         }
     }
