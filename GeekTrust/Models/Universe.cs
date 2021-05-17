@@ -1,4 +1,5 @@
 ﻿using GeekTrust.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,17 +22,16 @@ namespace GeekTrust.Models
         {
             if (!string.IsNullOrWhiteSpace(input))
             {
-                var parts = input.Split(' ', System.StringSplitOptions.RemoveEmptyEntries);
-                if (parts.Length == 2)
-                {
-                    var message = new SecretMessage
-                    {
-                        Recipient = FindKingdomByName(parts[0]),
-                        Content = parts[1]
-                    };
+                var recipient = input.Substring(0, input.IndexOf(' '));
+                var content = input.Substring(input.IndexOf(' ') + 1);
 
-                    AspirationalRuler.ProcessMessage(message);
-                }
+                var message = new SecretMessage
+                {
+                    Recipient = FindKingdomByName(recipient),
+                    Content = content
+                };
+
+                AspirationalRuler.ProcessMessage(message);
             }
         }
 

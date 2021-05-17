@@ -1,8 +1,4 @@
-# Geek Trust Challenges
-
-This repository contains my solution attempts at Geek Trust challenges available [here](https://www.geektrust.in/coding-problem).
-
-**Convention**: The challenges are solved in their respective branches.
+# Tame of Throne - Geek Trust
 
 |Challenge | Link | Branch |
 |--|--|--|
@@ -17,10 +13,13 @@ This repository contains my solution attempts at Geek Trust challenges available
 
 1. Browse to the `GeekTrust.Tests` directory in a terminal
 2. Run the below command
+
 ```
 dotnet test
 ```
-3. Verify output (should be 12 tests passed)
+
+3. Verify output
+
 
 # Code Coverage
 
@@ -32,7 +31,7 @@ dotnet test
 | Covered lines:    | 99              |
 | Uncovered lines:  | 0               |
 | Coverable lines:  | 99              |
-| Total lines:      | 192             |
+| Total lines:      | 196             |
 | Line coverage:    | 100% (99 of 99) |
 | Covered branches: | 19              |
 | Total branches:   | 20              |

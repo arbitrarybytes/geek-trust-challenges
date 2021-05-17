@@ -48,6 +48,16 @@ namespace GeekTrust.Tests
             Assert.True(_builder.Universe.DetermineRuler() == "NONE");
         }
 
+        [Fact]
+        public void Test_DetermineRuler_DuplicateAlly_None()
+        {
+            _builder.Universe.SendMessage("AIR ROZO");
+            _builder.Universe.SendMessage("AIR ROZO");
+            _builder.Universe.SendMessage("AIR ROZO");
+
+            Assert.True(_builder.Universe.DetermineRuler() == "NONE");
+        }
+
     }
 
 }
