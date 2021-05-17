@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GeekTrust.Contracts;
 
 namespace GeekTrust.Models
@@ -29,7 +30,8 @@ namespace GeekTrust.Models
         {
             if (_cipher.IsAlly(message))
             {
-                Allies.Value.Add(message.Recipient);
+                if (Allies.Value.FirstOrDefault(a => a.Name == message.Recipient.Name) == null)
+                    Allies.Value.Add(message.Recipient);
             }
         }
 
