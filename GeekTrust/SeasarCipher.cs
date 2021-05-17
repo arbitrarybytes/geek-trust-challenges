@@ -8,13 +8,9 @@ namespace GeekTrust
     public class SeasarCipher : ICipher
     {
 
-        public bool Decipher(SecretMessage message)
+        public string Decipher(SecretMessage message)
         {
             var emblemLength = message.Recipient.Emblem.Length;
-
-            //Optimization: Ensure message length is sufficient to cover emblem length
-            if (message.Content.Length < emblemLength)
-                return default;
 
             var decipheredChars = message.Content
                                          .ToUpper()
@@ -22,9 +18,18 @@ namespace GeekTrust
                                          .Select(c => GetDecipheredChar(c, emblemLength))
                                          .ToArray();
 
-            System.Diagnostics.Debug.WriteLine($"{message.Recipient.Name.PadRight(6, ' ')} :: {message.Recipient.Emblem.PadRight(10, ' ')} :: {new string(decipheredChars)}");
+            return new string(decipheredChars);
+        }
+
+        public bool IsAlly(SecretMessage message)
+        {
+            //Optimization: Ensure message length is sufficient to cover emblem length
+            if (message.Content.Length < message.Recipient.Emblem.Length)
+                return false;
 
             var emblem = message.Recipient.Emblem.ToUpper();
+            var decipheredChars = Decipher(message);
+
             var matchIndex = -1;
             foreach (var c in decipheredChars)
             {

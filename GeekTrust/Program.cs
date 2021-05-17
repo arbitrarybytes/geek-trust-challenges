@@ -1,9 +1,12 @@
 ﻿using GeekTrust.Contracts;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 
 namespace GeekTrust
 {
+
+    [ExcludeFromCodeCoverage]
     class Program
     {
         static void Main(string[] args)

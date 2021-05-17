@@ -11,8 +11,8 @@ namespace GeekTrust.Models
             Name = name;
             Kingdoms = participatingKingdoms;
             AspirationalRuler = FindKingdomByName(aspirationalRuler?.ToUpper());
-            _cipher = new SeasarCipher();
         }
+
         public string Name { get; }
         public IList<Kingdom> Kingdoms { get; }
         public Kingdom AspirationalRuler { get; }
@@ -46,8 +46,10 @@ namespace GeekTrust.Models
 
             return "NONE";
         }
+
         private Kingdom FindKingdomByName(string name) => Kingdoms.SingleOrDefault(k => k.Name == name);
+
         private const int _minimumAlliesToRule = 3;
-        private ICipher _cipher;
+
     }
 }

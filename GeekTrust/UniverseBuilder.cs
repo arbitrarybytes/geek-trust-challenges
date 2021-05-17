@@ -10,12 +10,12 @@ namespace GeekTrust
 
         public void Build(string name, string aspirationalKingdom)
         {
-            Universe = new Universe(name, 
-                                    GetParticipatingKingdoms(), 
+            Universe = new Universe(name,
+                                    ParticipatingKingdoms,
                                     aspirationalKingdom);
         }
 
-        private List<Kingdom> GetParticipatingKingdoms() => new List<Kingdom>
+        public List<Kingdom> ParticipatingKingdoms => new List<Kingdom>
             {
                 new Kingdom("SPACE", "Gorilla", new SeasarCipher()),
                 new Kingdom("LAND", "Panda"),
@@ -24,6 +24,6 @@ namespace GeekTrust
                 new Kingdom("AIR", "Owl"),
                 new Kingdom("FIRE", "Dragon")
             };
-    
+
     }
 }

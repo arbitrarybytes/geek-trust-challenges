@@ -27,9 +27,7 @@ namespace GeekTrust.Models
 
         public void ProcessMessage(SecretMessage message)
         {
-            var isRecipientAlly = _cipher?.Decipher(message);
-
-            if (isRecipientAlly.GetValueOrDefault())
+            if (_cipher.IsAlly(message))
             {
                 Allies.Value.Add(message.Recipient);
             }
